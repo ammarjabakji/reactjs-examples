@@ -18,34 +18,19 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-            
-            // Two ways to declare props
-            // The first one
-            // const Hello = (props) => {
-            //     console.log(props);
-                
-            //     return (
-            //         <div className="header">
-            //             <h1> Welcome to React </h1>
-            //             <p>{props.library} {props.message}</p>
-            //         </div>
-            //     )
-            // }
-            
-             // The second one destructuring
-            const Hello = ({library, message}) => {
-                //console.log(props);
-                
-                return (
-                    <div className="header">
-                        <h1> Welcome to React </h1>
-                        <p>{library} {message}</p>
-                    </div>
-                )
-            }
+
+        //Composing components
+            const Lake = ({name}) => <h1>{name}</h1>
+            const App = () => (
+                <div>
+                    <Lake name="lake Tueje" />
+                    <Lake name="lake Kufoe" />
+                    <Lake name="lake Zirha" />
+                </div>
+            )
                         
             ReactDOM.render(
-            <Hello library="React" message="Enjoy!" />,
+            <App />,
             document.getElementById('root')
             );
     </script>
