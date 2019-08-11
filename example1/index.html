@@ -21,14 +21,34 @@
 
         //Composing components
             const Lake = ({name}) => <h1>{name}</h1>
-            const App = () => (
-                <div>
-                    <Lake name="lake Tueje" />
-                    <Lake name="lake Kufoe" />
-                    <Lake name="lake Zirha" />
-                </div>
-            )
-                        
+            // const App = () => (
+            //     <div>
+            //         <Lake name="lake Tueje" />
+            //         <Lake name="lake Kufoe" />
+            //         <Lake name="lake Zirha" />
+            //     </div>
+            // )
+
+            // Introdcution to class component and state
+           class App extends React.Component {
+               state = {
+                   LoggedIn : false
+               }
+                render() {
+                    return (
+                        <div>
+                            <div> The user is { this.state.LoggedIn ? "Logged in" : "Not logged in"}</div>
+                            <Lake name="lake Tueje" />
+                            <Lake name="lake Kufoe" />
+                            <Lake name="lake Zirha" />
+                            <Lake name="Wohoo Lake" />
+                        </div>
+                    )
+                }
+            }
+            
+
+             
             ReactDOM.render(
             <App />,
             document.getElementById('root')
