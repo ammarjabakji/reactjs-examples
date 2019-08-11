@@ -19,35 +19,33 @@
     <div id="root"></div>
     <script type="text/babel">
 
-        //Composing components
-            const Lake = ({name}) => <h1>{name}</h1>
-            // const App = () => (
-            //     <div>
-            //         <Lake name="lake Tueje" />
-            //         <Lake name="lake Kufoe" />
-            //         <Lake name="lake Zirha" />
-            //     </div>
-            // )
+            const Lake = ({name}) => <h1>{name}</h1>;
 
-            // Introdcution to class component and state
-           class App extends React.Component {
-               state = {
-                   LoggedIn : false
-               }
+            class App extends React.Component {
+                state = {
+                    loggedIn: false
+                }
+                logIn = () => this.setState({loggedIn: true})
+                logOut = () => this.setState({loggedIn: false})
                 render() {
                     return (
                         <div>
-                            <div> The user is { this.state.LoggedIn ? "Logged in" : "Not logged in"}</div>
-                            <Lake name="lake Tueje" />
-                            <Lake name="lake Kufoe" />
-                            <Lake name="lake Zirha" />
-                            <Lake name="Wohoo Lake" />
+                            <button onClick={this.logIn}>Log In</button>
+                            <button onClick={this.logOut}>Log Out</button>
+                            <div>
+                                The user is {
+                                this.state.loggedIn 
+                                ? "logged in" 
+                                : "not logged in"}.
+                            </div>
+                            <Lake name="Lake Tahoe" />
+                            <Lake name="Angora Lake" />
+                            <Lake name="Shirley Lake" />
+                            <Lake name="Cathedral Lake" />
                         </div>
                     )
                 }
             }
-            
-
              
             ReactDOM.render(
             <App />,
