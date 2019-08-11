@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/react-dom@16.9.0/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
-    #header{
+    .header{
         color: blueviolet;
     }
     </style>
@@ -19,24 +19,33 @@
     <div id="root"></div>
     <script type="text/babel">
             
-            //  Three ways to create React components
-
-            // const Hello = () =>  <h1> Welcome to React </h1>
-
-            // const Hello = () => (
-            //     <h1> Welcome to React </h1>
-            // )
-    
-
-            const Hello = () => {
+            // Two ways to declare props
+            // The first one
+            // const Hello = (props) => {
+            //     console.log(props);
+                
+            //     return (
+            //         <div className="header">
+            //             <h1> Welcome to React </h1>
+            //             <p>{props.library} {props.message}</p>
+            //         </div>
+            //     )
+            // }
+            
+             // The second one destructuring
+            const Hello = ({library, message}) => {
+                //console.log(props);
+                
                 return (
-                    <h1 id="header"> Welcome to React </h1>
+                    <div className="header">
+                        <h1> Welcome to React </h1>
+                        <p>{library} {message}</p>
+                    </div>
                 )
             }
-
                         
             ReactDOM.render(
-            <Hello />,
+            <Hello library="React" message="Enjoy!" />,
             document.getElementById('root')
             );
     </script>
