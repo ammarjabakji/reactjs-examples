@@ -14,27 +14,36 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-
-            const studentlist = [
-            "Jone Due",
-            "Greg Simon",
-            "Fui Yun",
-            "Sara Hamin"
-            ];
+            // using opjects with map
             
+            let mystyle = {
+                color: 'red',
+                fontSize: '62px'
+            };
 
-            const App = ({students}) => (
-                <ul>
-                    {students.map((student,i) =>
-                        <li key ={i}>{student}</li>
-                    )}
-                </ul>
+            const cardinfo = {
+                name: "Jone Due",
+                job: "Web developer",
+                hobbies : ["Football","Basketball" ,"Swimming"]
+            }
+
+            const App = ({card}) => (
+                <div>
+                    <h1 style={mystyle}>{cardinfo.name}</h1>
+                    <p>I am a {cardinfo.job}, my skills are;</p>
+                    <ul>
+                        {cardinfo.hobbies.map(info => 
+                            <li>{info}</li>                        
+                        )}
+
+                    </ul>
+                </div>
             )
-            
             ReactDOM.render(
-                <App students={studentlist}/>,
+                <App card={cardinfo} />,
                 document.getElementById("root")
             );
+
     </script>
 </body>
 </html>
