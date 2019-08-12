@@ -8,30 +8,31 @@
     <script src="https://unpkg.com/react@16.9.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16.9.0/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>
-    .header{
-        color: blueviolet;
-    }
-    </style>
+
 
 </head>
 <body>
     <div id="root"></div>
     <script type="text/babel">
 
-            const Lake = ({name}) => <h1>{name}</h1>;
-            const SkiResort = ({name}) => <h1>{name}</h1>;
+            const studentlist = [
+            "Jone Due",
+            "Greg Simon",
+            "Fui Yun",
+            "Sara Hamin"
+            ];
+            
 
-            const App = ({summer}) => (
-                <div>
-                    {summer 
-                        ? <Lake name="Lake Tahoe"/> 
-                        : <SkiResort name="Alpine Meadowss"/>}
-                </div>
+            const App = ({students}) => (
+                <ul>
+                    {students.map((student,i) =>
+                        <li key ={i}>{student}</li>
+                    )}
+                </ul>
             )
             
             ReactDOM.render(
-                <App summer={true}/>,
+                <App students={studentlist}/>,
                 document.getElementById("root")
             );
     </script>
