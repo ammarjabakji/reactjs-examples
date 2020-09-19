@@ -33,19 +33,19 @@
             // }
             
              // The second one destructuring
-            const Hello = ({library, message}) => {
+            const Hello = ({library, message,number}) => {
                 //console.log(props);
                 
                 return (
                     <div className="header">
                         <h1> Welcome to React </h1>
-                        <p>{library} {message}</p>
+                        <p>{library} {message} {number}</p>
                     </div>
                 )
             }
                         
             ReactDOM.render(
-            <Hello library="React" message="Enjoy!" />,
+            <Hello library="React" message="Enjoy!"  number={10}/>,
             document.getElementById('root')
             );
     </script>
